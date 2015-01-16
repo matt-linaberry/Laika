@@ -24,7 +24,16 @@ class ViewController: UIViewController {
     }
     @IBAction func calculateButtonTouched(sender: UIButton) {
         let humanYearsEntered = humanYearsTextfield.text.toInt()!
-        dogYearsLabel.text = "\(humanYearsEntered) " + "in dog years is " + "\(humanYearsEntered * 7)"
+        var dogYearsResult:Double
+        if (humanYearsEntered <= 2)
+        {
+            dogYearsResult = Double(humanYearsEntered) * 10.5
+        }
+        else
+        {
+            dogYearsResult = (Double(2) * 10.5) + ((Double(humanYearsEntered) - 2) * 4)
+        }
+        dogYearsLabel.text = "\(humanYearsEntered) " + "in dog years is " + "\(dogYearsResult)"
         dogYearsLabel.hidden = false
         humanYearsTextfield.resignFirstResponder()
     }
